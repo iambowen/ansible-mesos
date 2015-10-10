@@ -8,6 +8,6 @@
   sudo: yes
 
   roles:
-    - {role: ansible-mesos, mesos_install_mode: "master-slave", mesos_ip: "192.168.100.3", mesos_master_port: "5050", mesos_hostname: "localhost"}
+    - {role: mesos, mesos_install_mode: "master-slave", mesos_ip: "192.168.100.2", mesos_master_port: "5050", mesos_hostname: "localhost"}
 
 - include: main.yml
