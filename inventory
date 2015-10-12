@@ -1,2 +1,4 @@
 [mesos]
 localhost
+[jenkins-master]
+10.202.128.30

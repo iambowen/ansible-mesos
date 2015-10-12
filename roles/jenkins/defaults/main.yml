@@ -1,0 +1,19 @@
+---
+jenkins_connection_delay: 5
+jenkins_connection_retries: 60
+jenkins_hostname: master
+jenkins_jar_location: /opt/jenkins-cli.jar
+jenkins_plugins:
+  - git
+  - sonar
+  - ssh
+  - pmd
+  - checkstyle
+  - findbugs
+  # - cct
+  # - cseccheck
+  - metrics   #could it be build-metrics plugin?
+  # - infusion
+  - sourcemonitor
+  # - codec   could it be codecover?
+  - mesos

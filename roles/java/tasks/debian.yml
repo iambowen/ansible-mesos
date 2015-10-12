@@ -1,0 +1,4 @@
+---
+
+- name: install java environment
+  apt: name=java{{java_version}}-jdk state=installed
