@@ -1,0 +1,4 @@
+---
+
+- name: install java environment
+  yum: name=java{{java_version}}-jdk state=installed

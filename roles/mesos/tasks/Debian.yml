@@ -5,18 +5,13 @@
 - name: Add mesosphere repo
   apt_repository: repo='deb http://repos.mesosphere.io/{{ansible_distribution|lower}} {{ansible_distribution_release|lower}} main' state=present
 
-- name: Install Debian OS packages
-  apt: pkg={{item}} state=present update_cache=yes
-  with_items:
-    - wget
-    - curl
-    - unzip
-    - python-setuptools
-    - python-dev
+# - name: Install Debian OS packages
+#   apt: pkg={{item}} state=present update_cache=yes
+#   with_items:
     # - mesos={{mesos_version}}-1.0.{{ansible_distribution|lower}}{{ansible_distribution_version.split('.')|join('')}}
 
 - name: download the latest mesos
-  command: 'wget -N -O /vagrant/mesos_0.24.1-0.2.35.ubuntu1404_amd64.deb "http://downloads.mesosphere.io/master/ubuntu/14.04/mesos_0.24.1-0.2.35.ubuntu1404_amd64.deb" '
+  command: 'wget -N -O /opt/mesos_0.24.1-0.2.35.ubuntu1404_amd64.deb "http://downloads.mesosphere.io/master/ubuntu/14.04/mesos_0.24.1-0.2.35.ubuntu1404_amd64.deb" '
 
 - name: install latest mesos
-  apt: deb=/vagrant/mesos_0.24.1-0.2.35.ubuntu1404_amd64.deb
+  apt: deb=/opt/mesos_0.24.1-0.2.35.ubuntu1404_amd64.deb

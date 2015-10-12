@@ -1,0 +1,11 @@
+---
+
+- name: install java environment
+  apt: name=item state=installed
+  with_items:
+    - git
+    - wget
+    - curl
+    - unzip
+    - python-setuptools
+    - python-dev
