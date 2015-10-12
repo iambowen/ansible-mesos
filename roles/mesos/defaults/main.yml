@@ -17,7 +17,7 @@ zookeeper_hostnames: "{{ mesos_hostname }}:{{ zookeeper_client_port }}"
 mesos_zookeeper_masters: "zk://{{ zookeeper_hostnames }}/mesos"
 
 # Containerizer
-mesos_containerizers: "mesos"
+mesos_containerizers: "docker,mesos"
 mesos_executor_timeout: "5mins"
 
 # Additional configurations
