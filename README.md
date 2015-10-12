@@ -30,3 +30,10 @@ You may also want to specify a ```mesos_quorum``` value of ```n/2 + 1```, where 
 Docker is only required on slave nodes and is not installed by default. To use docker with Mesos ensure that docker is installed on slave nodes. You can then set ```mesos_containerizers: "docker,mesos"``` for slave nodes.
 
 See the ```vars/main.yml``` file for specific role settings and [the Mesos configuration page for Mesos settings](http://mesos.apache.org/documentation/latest/configuration/).
+
+### TODO
+
+1. add ansible role jenkins to install the latest jenkins with mesos-cloud plugin
+2. add ansible role of latest docker
+3. add ansible role of marathon 
+3. extract common role to install preconditions for those components.
