@@ -18,3 +18,12 @@
 
 - name: Ensure Jenkins is installed.
   apt: pkg=jenkins state=installed
+
+- name: copy libmesos to /usr/lib
+  copy: src={{item}} dest=/usr/lib/{{item}}
+  with_items:
+    - libmesos.la
+    - libmesos-0.24.1.so
+
+- name: link libmesos.so to libmesos-0.24.1.so
+  file: src=/usr/lib/libmesos-0.24.1.so dest=/usr/lib/libmesos state=link
