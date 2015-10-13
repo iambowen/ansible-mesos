@@ -1,7 +1,12 @@
 ---
+- name: update source list
+  copy: src=163.source.list dest=/etc/apt/sources.list
 
-- name: install java environment
-  apt: name=item state=installed
+- name:  update repository index
+  apt: update_cache=yes
+
+- name: install common packages
+  apt: name={{item}} state=installed
   with_items:
     - git
     - wget

@@ -34,6 +34,15 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define 'jenkins-master', primary: true do |c|
+    c.vm.network "private_network", ip: "192.168.100.3"
+    c.vm.box = "ubuntu/trusty64"
+    c.vm.provision :ansible do |ans|
+      ans.playbook = "jenkins-master.yml"
+      ans.sudo = true
+      ans.host_key_checking = false
+    end
+  end
   # centos 6:
   # config.vm.define 'centos' do |c|
   #   c.vm.network "private_network", ip: "192.168.100.4"

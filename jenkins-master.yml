@@ -1,3 +1,8 @@
 ---
-
+#initialization of jenkins master 
+#
 - hosts: jenkins-master
+  roles:
+    - common
+    - java
+    - {role: jenkins, jenkins_hostname: "192.168.100.3"}
