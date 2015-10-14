@@ -1,0 +1,4 @@
+---
+
+- name: nothing here
+  shell: echo "wtf"  
