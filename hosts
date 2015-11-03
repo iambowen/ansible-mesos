@@ -1,0 +1,8 @@
+192.168.100.1   mesos-master
+#192.168.100.2   jenkins-master
+192.168.100.8   jenkins-master
+192.168.100.3   zookeeper
+192.168.100.4   mesos-slave1
+192.168.100.5   mesos-slave2
+#192.168.100.6   mesos-slave1
+#192.168.100.7   mesos-slave2

@@ -1,12 +1,6 @@
 ---
-#
-# Test Playbook
-#
 
-- hosts: localhost
-  connection: local
-  sudo: yes
-
+- hosts: zookeeper
   roles:
     - {role: mesos, mesos_install_mode: "master-slave", mesos_ip: "192.168.100.2", mesos_master_port: "5050", mesos_hostname: "localhost"}
 

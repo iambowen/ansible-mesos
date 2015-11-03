@@ -1,0 +1,5 @@
+---
+#
+- hosts: zookeeper
+  roles:
+    - {role: zookeeper, inventory_hostname: "mesos-master" }

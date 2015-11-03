@@ -2,3 +2,5 @@
 localhost
 [jenkins-master]
 10.202.128.30
+[test]
+192.168.100.10
