@@ -31,52 +31,52 @@ Vagrant.configure("2") do |config|
       s.privileged = true
     end
     c.vm.provider "virtualbox" do |vb|
-       vb.memory = "2048"
+       vb.memory = "4096"
     end
   end
 
-  config.vm.define 'mesos-master', primary: true do |c|
-    c.vm.network "private_network", ip: "192.168.100.1"
-    c.vm.hostname = "mesos-master"
-    c.vm.box = "ubuntu/trusty64"
-    c.vm.provision :shell, previlidged: true, inline: "cp /vagrant/hosts /etc/hosts"
-    c.vm.provision :ansible do |ans|
-      ans.playbook = "mesos-master.yml"
-      ans.sudo = true
-      ans.host_key_checking = false
-    end
-  end
-
-  config.vm.define 'jenkins-master', primary: true do |c|
-    c.vm.network "private_network", ip: "192.168.100.8"
-    c.vm.hostname = "mesos-master"
-    c.vm.box = "ubuntu/trusty64"
-    c.vm.provision "file", source: "./hosts", destination: "/etc/hosts"
-
-    c.vm.provision :ansible do |ans|
-      ans.playbook = "jenkins-master.yml"
-      ans.sudo = true
-      ans.host_key_checking = false
-    end
-  end
-
-  config.vm.define 'zookeeper', primary: true do |c|
-    c.vm.network "private_network", ip: "192.168.100.3"
-    c.vm.hostname = "zookeeper"
-    c.vm.box = "ubuntu/trusty64"
-    c.vm.provider "virtualbox" do |vb|
-       vb.memory = "512"
-    end
-    c.vm.provision :shell do |s|
-      s.inline = "cp /vagrant/hosts /etc/hosts"
-      s.privileged = true
-    end
-    c.vm.provision :ansible do |ans|
-      ans.playbook = "zookeeper.yml"
-      ans.sudo = true
-      ans.host_key_checking = false
-    end
-  end
+  # config.vm.define 'mesos-master', primary: true do |c|
+  #   c.vm.network "private_network", ip: "192.168.100.1"
+  #   c.vm.hostname = "mesos-master"
+  #   c.vm.box = "ubuntu/trusty64"
+  #   c.vm.provision :shell, previlidged: true, inline: "cp /vagrant/hosts /etc/hosts"
+  #   c.vm.provision :ansible do |ans|
+  #     ans.playbook = "mesos-master.yml"
+  #     ans.sudo = true
+  #     ans.host_key_checking = false
+  #   end
+  # end
+  #
+  # config.vm.define 'jenkins-master', primary: true do |c|
+  #   c.vm.network "private_network", ip: "192.168.100.8"
+  #   c.vm.hostname = "mesos-master"
+  #   c.vm.box = "ubuntu/trusty64"
+  #   c.vm.provision "file", source: "./hosts", destination: "/etc/hosts"
+  #
+  #   c.vm.provision :ansible do |ans|
+  #     ans.playbook = "jenkins-master.yml"
+  #     ans.sudo = true
+  #     ans.host_key_checking = false
+  #   end
+  # end
+  #
+  # config.vm.define 'zookeeper', primary: true do |c|
+  #   c.vm.network "private_network", ip: "192.168.100.3"
+  #   c.vm.hostname = "zookeeper"
+  #   c.vm.box = "ubuntu/trusty64"
+  #   c.vm.provider "virtualbox" do |vb|
+  #      vb.memory = "512"
+  #   end
+  #   c.vm.provision :shell do |s|
+  #     s.inline = "cp /vagrant/hosts /etc/hosts"
+  #     s.privileged = true
+  #   end
+  #   c.vm.provision :ansible do |ans|
+  #     ans.playbook = "zookeeper.yml"
+  #     ans.sudo = true
+  #     ans.host_key_checking = false
+  #   end
+  # end
   # centos 6:
   #
   # config.vm.define 'centos' do |c|
